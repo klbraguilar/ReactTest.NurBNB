@@ -1,0 +1,107 @@
+{
+  "consumer": {
+    "name": "react-client"
+  },
+  "interactions": [
+    {
+      "description": "se requiere crear un nuevo usuario",
+      "providerStates": [
+        {
+          "name": "crear usuario"
+        }
+      ],
+      "request": {
+        "body": {
+          "email": "carlos@gmail.com",
+          "password": "car123",
+          "userName": "Carlos"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/api/Usuario"
+      },
+      "response": {
+        "body": "f6fa5cfa-c35d-403f-9384-47fbae85557e",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "un texto de busqueda",
+      "providerStates": [
+        {
+          "name": "realizar busqueda de usuarios"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/Usuario",
+        "query": {
+          "searchTerm": [
+            "kleb"
+          ]
+        }
+      },
+      "response": {
+        "body": [
+          {
+            "email": "kleber@gmail.com",
+            "id": "f6fa5cfa-c35d-403f-9384-47fbae85557e",
+            "password": "pass123",
+            "username": "kleber"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.7",
+      "models": "1.1.9"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "usuario-service"
+  }
+}
