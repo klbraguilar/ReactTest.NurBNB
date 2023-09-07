@@ -8,10 +8,10 @@ let port;
 let opts;
 describe("Pact Verification", () => {
     before(async () => {
-        port = 7084;
+        port = 5135;
         opts = {
             provider: "usuario-service",
-            providerBaseUrl: `https://localhost:${port}`,
+            providerBaseUrl: `http://localhost:${port}`,
             logLevel: "info",
             pactUrls: [pactFile],
             agent: http.Agent({keepAlive: true})

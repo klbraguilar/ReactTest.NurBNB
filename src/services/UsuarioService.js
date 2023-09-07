@@ -3,7 +3,7 @@ export class UsuarioService {
     constructor(endpoint) {
         this.endpoint = endpoint;
         if (!endpoint) {
-            endpoint = 'http://localhost:7084';
+            endpoint = 'http://localhost:5135';
         }
     }
     crearUsuario = (userName, password, email) => {
