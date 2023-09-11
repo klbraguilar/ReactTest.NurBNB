@@ -28,9 +28,9 @@ export class HuespedService {
             });
         });
     }
-    /*buscarPorNombre = (texto) => {
+    buscarPorNombre = (texto) => {
         return new Promise((resolve, reject) => {
-            axios.get(this.endpoint + '/api/Usuario', {
+            axios.get(this.endpoint + '/api/Guest', {
                 params: {
                     searchTerm: texto
                 }
@@ -41,5 +41,5 @@ export class HuespedService {
                 reject(error);
             });
         });
-    }*/
+    }
 }

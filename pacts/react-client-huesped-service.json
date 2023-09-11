@@ -96,6 +96,65 @@
         },
         "status": 200
       }
+    },
+    {
+      "description": "un texto de busqueda",
+      "providerStates": [
+        {
+          "name": "realizar busqueda de huesped"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/Guest",
+        "query": {
+          "searchTerm": [
+            "ram"
+          ]
+        }
+      },
+      "response": {
+        "body": [
+          {
+            "id": "b5d49432-e983-4fd1-9447-85c2bdc74663",
+            "lastName": "medrano",
+            "name": "ramiro",
+            "phoneNumber": "75658045",
+            "userName": "qwert"
+          },
+          {
+            "id": "fe937894-6be6-48ef-a55d-9e5a3e802f46",
+            "lastName": "medrano",
+            "name": "ramiro",
+            "phoneNumber": "75658045",
+            "userName": "qwert"
+          },
+          {
+            "id": "7e4eb70f-5e42-42eb-a3bd-f8ac9788d094",
+            "lastName": "medrano",
+            "name": "Ramiro",
+            "phoneNumber": "75658045",
+            "userName": "Rosa"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
     }
   ],
   "metadata": {

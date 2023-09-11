@@ -2,7 +2,7 @@ import { PactV3, MatchersV3 } from '@pact-foundation/pact';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { HuespedService } from '../../services/HuespedService.js';
-import { crearHuespedRequestBody, crearHuespedResponse } from '../HuespedPactResponses.js';
+import { crearHuespedRequestBody, crearHuespedResponse, textoBusqueda, responseHuespedSearch } from '../HuespedPactResponses.js';
 const { like } = MatchersV3;
 describe('El API de Items', () => {
 
@@ -47,14 +47,14 @@ describe('El API de Items', () => {
     });
 
 
-    /*describe('buscar usuarios', () => {
-        it('retorna una lista de usuarios encontrados', () => {
+    describe('buscar huesped', () => {
+        it('retorna una lista de huesped encontrados', () => {
             //Arrange
-            provider.given('realizar busqueda de usuarios')
+            provider.given('realizar busqueda de huesped')
                 .uponReceiving('un texto de busqueda')
                 .withRequest({
                     method: 'GET',
-                    path: '/api/Usuario',
+                    path: '/api/Guest',
                     query: {
                         searchTerm: textoBusqueda
                     },
@@ -63,23 +63,23 @@ describe('El API de Items', () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: like(responseUsuarioSearch)
+                    body: like(responseHuespedSearch)
                 });
             return provider.executeTest(async mockServer => {
                 // Act
-                itemService = new UsuarioService(mockServer.url);
-                return itemService.buscarPorNombre(textoBusqueda).then((response) => {
+                huespedService = new HuespedService(mockServer.url);
+                return huespedService.buscarPorNombre(textoBusqueda).then((response) => {
                     // Assert
 
                     expect(response).to.be.not.null;
                     expect(response).to.be.a.string;
-                    expect(response).to.deep.equal(responseUsuarioSearch);
+                    expect(response).to.deep.equal(responseHuespedSearch);
                     expect(response).to.be.an('array');
-                    expect(response).to.have.lengthOf(1);
-                    const values = response.map((item) => item.username);
-                    expect(values).to.include('kleber');                    
+                    expect(response).to.have.lengthOf(3);
+                    const values = response.map((item) => item.name);
+                    expect(values).to.include('ramiro');                    
                 });
             });
         });
-    });*/
+    });
 });
