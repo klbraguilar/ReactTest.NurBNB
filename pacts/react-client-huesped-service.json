@@ -1,0 +1,116 @@
+{
+  "consumer": {
+    "name": "react-client"
+  },
+  "interactions": [
+    {
+      "description": "se requiere crear un nuevo encargado",
+      "providerStates": [
+        {
+          "name": "crear encargado"
+        }
+      ],
+      "request": {
+        "body": {
+          "lastName": "medrano",
+          "name": "ramiro",
+          "phoneNumber": "75658045",
+          "user": {
+            "email": "qwert@gmail.com",
+            "password": "457865",
+            "username": "qwert"
+          },
+          "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/api/Staff"
+      },
+      "response": {
+        "body": "\"3fa85f64-5717-4562-b3fc-2c963f66afa6\"",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "se requiere crear un nuevo huesped",
+      "providerStates": [
+        {
+          "name": "crear huesped"
+        }
+      ],
+      "request": {
+        "body": {
+          "lastName": "medrano",
+          "name": "ramiro",
+          "phoneNumber": "75658045",
+          "user": {
+            "email": "qwert@gmail.com",
+            "password": "457865",
+            "username": "qwert"
+          },
+          "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/api/Guest"
+      },
+      "response": {
+        "body": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.7",
+      "models": "1.1.9"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "huesped-service"
+  }
+}
